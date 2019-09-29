@@ -21,12 +21,13 @@ class BasePage():
 		self.url = url
 		self.driver.implicitly_wait(timeout)
 
-	def click_el(self):
-		print()
+	def click_css(self, css):
+		WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css)))
+		self.driver.find_element(By.CSS_SELECTOR, css).click()
 
-	def input_phone(self, txt):
-		WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(*LoginPageLocators.PHONE_SIGNIN))
-		self.driver.find_element_by(*LoginPageLocators.PHONE_SIGNIN).send_keys(txt)
+	def input_css(self, css, txt):
+		WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css)))
+		self.driver.find_element(By.CSS_SELECTOR, css).send_keys(txt)
 
 	def is_element_present(self, how, what):
 		try:
@@ -42,10 +43,3 @@ class BasePage():
 			return True
 
 		return False
-
-
-	def should_be_login_link(self):
-		assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
-
-	def go_to_product_page(self):
-		self.driver.find_element(*BasePageLocators.PRODUCT_LINK).click()
