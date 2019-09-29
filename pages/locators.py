@@ -2,18 +2,17 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    PRODUCT_LINK = (By.CSS_SELECTOR, "#browse > li > ul > li:nth-child(1) > a")
-
-
+    LOGIN_TITLE = (By.CSS_SELECTOR, "div.h2-title.align-center")
 
 class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    SIGNUP_LINK = (By.CSS_SELECTOR, "div.offset-top.align-center > a")
 
 class LoginPageLocators():
-    EMAIL_REG = (By.CSS_SELECTOR, "#id_registration - email")
-    EMAIL_SIGNIN = (By.CSS_SELECTOR, "#id_login-username")
+    BUTTON_FORGET = (By.CSS_SELECTOR, "div.align-right.offset-bottom > button")
+    BUTTON_ENTER = (By.CSS_SELECTOR, "#sign-in-login-submit")
+    NOT_YET_TEXT = (By.CSS_SELECTOR, "div.offset-top.align-center > div > span")
+    PHONE_SIGNIN = (By.CSS_SELECTOR, "div.form-group.error > input")
+    PASS_SIGNIN = (By.CSS_SELECTOR, "form > div:nth-child(2) > input")
 
 class ProductPageLocators():
     ADD_PROD_1 = (By.CSS_SELECTOR, '#add_to_basket_form > button')
