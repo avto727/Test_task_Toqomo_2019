@@ -1,12 +1,10 @@
 from .base_page import BasePage
 from .locators import *
-from selenium.webdriver.common.by import By
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
-        self.should_be_register_form()
 
     def should_be_login_url(self):
         print('Шаг 1 проверка на корректный url адрес')
@@ -28,6 +26,10 @@ class LoginPage(BasePage):
         signup_text = self.driver.find_element(*MainPageLocators.SIGNUP_LINK).text
         assert "Зарегистрироваться в JShop" in signup_text, "signup_text is wrong"
 
-    def should_be_register_form(self):
-        # реализуйте проверку, что есть форма регистрации на странице
-        assert True
+    def input_data_user(self, user):
+        phone = user.get('phone')
+        pas = user.get('pass')
+        print(phone, pas)
+        super().input_phone(phone)
+        # super().input_css(*LoginPageLocators.PASS_SIGNIN, pas)
+        # super().input_css(*LoginPageLocators.PHONE_SIGNIN, phone)
