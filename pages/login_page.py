@@ -1,7 +1,8 @@
 from .base_page import BasePage
 from .locators import *
 from selenium.webdriver.common.by import By
-from time import sleep
+from datetime import datetime
+
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
@@ -9,7 +10,7 @@ class LoginPage(BasePage):
         self.should_be_login_form()
 
     def should_be_login_url(self):
-        print('Шаг 1 проверка на корректный url адрес')
+        self.printer('Шаг 1 проверка на корректный url адрес')
         a_url = self.driver.current_url
         print(a_url)
         assert 'https://app.jowi.online/auth/sign-in' == a_url, "Login link is wrong"
@@ -46,3 +47,10 @@ class LoginPage(BasePage):
         a_url = self.driver.current_url
         print(a_url)
         assert 'https://app.jowi.online/companies' == a_url, "Login link is wrong"
+
+    def printer(self, printing):
+        log_file = open(".log.txt", "w")
+        print(str(datetime.now())+ ' ' + str(printing))
+        log_file.write(str(datetime.now()) + ' ' + str(printing) + '\n')
+        log_file.close()
+        return
