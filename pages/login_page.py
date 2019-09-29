@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from .locators import *
 from selenium.webdriver.common.by import By
-from datetime import datetime
 from .logger_settings import log
 
 class LoginPage(BasePage):
