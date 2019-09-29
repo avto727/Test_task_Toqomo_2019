@@ -1,0 +1,2 @@
+2019-09-29 19:59:34,590 - root - ERROR - TEXT_MIN_LOGIN is presented
+2019-09-29 19:59:52,660 - root - ERROR - ERROR_LOGIN is presented
